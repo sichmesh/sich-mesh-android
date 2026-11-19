@@ -17,12 +17,24 @@ android {
         versionName = "0.1.0"
     }
 
+    // The SICH release key. It is never in this repository: GitHub Actions takes it from the repository's
+    // secrets (see .github/workflows/build.yml), a developer's own machine from these environment variables.
+    // Without them (a fork, a pull request, a local build) the APK is signed with the debug key: test builds only.
+    signingConfigs {
+        val ks = System.getenv("SICH_KEYSTORE")
+        if (!ks.isNullOrEmpty()) create("sich") {
+            storeFile = file(ks)
+            storePassword = System.getenv("SICH_KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("SICH_KEY_ALIAS")
+            keyPassword = System.getenv("SICH_KEYSTORE_PASSWORD")   // PKCS12 (keytool's default): one password for both
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true            // R8: smaller, names obfuscated
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            // for now signed with the debug key (testing only); the SICH release key comes later and never enters git
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.findByName("sich") ?: signingConfigs.getByName("debug")
         }
     }
     compileOptions {

@@ -32,10 +32,11 @@ JDK 17 and the Android SDK (Android Studio has both).
 ./gradlew assembleRelease        # app/build/outputs/apk/release/app-release.apk
 ```
 
-GitHub Actions builds the same APK on every push (`.github/workflows/build.yml`). For now it is signed
-with the debug key: for testing only. Official releases will be signed with the SICH release key; its
-fingerprint will be published on sichmesh.org so anyone can check an APK is genuine. The key itself is
-never put in this repository.
+GitHub Actions builds the same APK on every push (`.github/workflows/build.yml`) and signs it with the
+SICH release key, which it takes from the repository's secrets: the key itself is never put in this
+repository. Builds without it (forks, pull requests, your own machine) are signed with the debug key and
+are for testing only. The release key's fingerprint will be published on sichmesh.org so anyone can check
+an APK is genuine.
 
 ## Licence
 
