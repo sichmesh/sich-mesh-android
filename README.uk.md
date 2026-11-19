@@ -39,4 +39,4 @@ GitHub Actions збирає такий самий APK після кожного 
 
 ## Ліцензія
 
-GPL-3.0 (див. `LICENSE`). Назва й логотип SICH належать BFU Electronics LTD і ліцензією не охоплюються.
+GPL-3.0 (див. `LICENSE`). Назва SICH і логотип-тризуб (іконка застосунку) належать BFU Electronics LTD і ліцензією не охоплюються: див. [TRADEMARK.md](TRADEMARK.md).

@@ -39,5 +39,5 @@ never put in this repository.
 
 ## Licence
 
-GPL-3.0 (see `LICENSE`). The SICH name and logo are trademarks of BFU Electronics LTD and are not
-covered by the licence.
+GPL-3.0 (see `LICENSE`). The SICH name and the trident logo (the app icon) are trademarks of
+BFU Electronics LTD and are not covered by the licence: see [TRADEMARK.md](TRADEMARK.md).

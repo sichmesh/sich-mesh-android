@@ -4,6 +4,7 @@
     <color name="phos">#8FE388</color>
     <color name="flare">#D2FFB0</color>
     <color name="voidc">#05090A</color>
+    <color name="icon_bg">#0B0E18</color>
     <style name="Sich" parent="android:Theme.Material.NoActionBar">
         <item name="android:windowBackground">@color/voidc</item>
         <item name="android:colorPrimary">@color/ground</item>
