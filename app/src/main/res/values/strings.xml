@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">SICH Mesh</string>
+    <string name="lang_code">en</string>
+    <string name="tagline">The app for SICH network devices</string>
+    <string name="find">Find a device</string>
+    <string name="searching">Searching…</string>
+    <string name="none">No devices in sight.</string>
+    <string name="how_on">On the device: SETTINGS &gt; BLUETOOTH &gt; PHONE APP: ON. It stays visible for 10 minutes.</string>
+    <string name="how_code">The first time, Android asks for a code: type the 6 digits shown on the device screen.</string>
+    <string name="need_bt">Turn Bluetooth on on the phone.</string>
+    <string name="need_perm">Allow Bluetooth (nearby devices) for SICH Mesh in the phone settings.</string>
+    <string name="scan_failed">The search did not start (error %1$d).</string>
+    <string name="connecting">Connecting…</string>
+    <string name="pairing">Type the code from the device screen</string>
+    <string name="ready">Connected</string>
+    <string name="lost">Connection lost · trying again</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="forget">Forget the device</string>
+    <string name="forget_how">To forget it completely: on the device SETTINGS &gt; BLUETOOTH &gt; FORGET PHONES, and on the phone Bluetooth settings &gt; the device &gt; Forget.</string>
+    <string name="device">Device</string>
+    <string name="fw_up">firmware %1$s · up %2$s</string>
+    <string name="orlyk">ORLYK</string>
+    <string name="orlyk_off">off on the device</string>
+    <string name="via_phone">online through this phone</string>
+    <string name="via_wifi">online through the device Wi-Fi</string>
+    <string name="no_net">no internet</string>
+    <string name="net_connecting">connecting</string>
+    <string name="net_error">server error</string>
+    <string name="carried">%1$d exchanges through the phone</string>
+    <string name="unread">%1$d unread</string>
+    <string name="carried_note">The phone only passes sealed frames of the same size: it sees no messages, no contacts and no keys.</string>
+    <string name="lora">LoRa</string>
+    <string name="nodes">%1$d nodes</string>
+    <string name="gps">GPS</string>
+    <string name="fix_sats">fix · %1$d sats</string>
+    <string name="no_fix">no fix</string>
+    <string name="off">off</string>
+    <string name="notif_channel">Connection to the SICH device</string>
+    <string name="notif_connecting">Connecting to the device…</string>
+    <string name="notif_ready">%1$s · ORLYK through the phone</string>
+    <string name="notif_lost">%1$s · connection lost, trying again</string>
+    <string name="licence">Open source, GPL-3.0 · sichmesh.org</string>
+</resources>

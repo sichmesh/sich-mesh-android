@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ground">#081008</color>
+    <color name="phos">#8FE388</color>
+    <color name="flare">#D2FFB0</color>
+    <color name="voidc">#05090A</color>
+    <style name="Sich" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/voidc</item>
+        <item name="android:colorPrimary">@color/ground</item>
+        <item name="android:colorAccent">@color/flare</item>
+        <item name="android:statusBarColor">@color/voidc</item>
+        <item name="android:navigationBarColor">@color/voidc</item>
+    </style>
+</resources>

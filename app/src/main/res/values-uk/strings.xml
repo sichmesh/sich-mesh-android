@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lang_code">uk</string>
+    <string name="tagline">Застосунок для пристроїв мережі SICH</string>
+    <string name="find">Знайти пристрій</string>
+    <string name="searching">Шукаю…</string>
+    <string name="none">Пристроїв не видно.</string>
+    <string name="how_on">На пристрої: НАЛАШТУВАННЯ &gt; BLUETOOTH &gt; ЗАСТОСУНОК: УВІМК. Пристрій буде видно 10 хвилин.</string>
+    <string name="how_code">Під час першого підключення Android попросить код: введіть 6 цифр з екрана пристрою.</string>
+    <string name="need_bt">Увімкніть Bluetooth на телефоні.</string>
+    <string name="need_perm">Дозвольте SICH Mesh Bluetooth (пристрої поблизу) в налаштуваннях телефона.</string>
+    <string name="scan_failed">Пошук не почався (помилка %1$d).</string>
+    <string name="connecting">Підключаюсь…</string>
+    <string name="pairing">Введіть код з екрана пристрою</string>
+    <string name="ready">Підключено</string>
+    <string name="lost">Зв\'язок втрачено · пробую знову</string>
+    <string name="disconnect">Від\'єднати</string>
+    <string name="forget">Забути пристрій</string>
+    <string name="forget_how">Щоб забути повністю: на пристрої НАЛАШТУВАННЯ &gt; BLUETOOTH &gt; ЗАБУТИ ТЕЛЕФОНИ, а на телефоні налаштування Bluetooth &gt; пристрій &gt; Забути.</string>
+    <string name="device">Пристрій</string>
+    <string name="fw_up">прошивка %1$s · працює %2$s</string>
+    <string name="orlyk">ОРЛИК</string>
+    <string name="orlyk_off">вимкнено на пристрої</string>
+    <string name="via_phone">онлайн через цей телефон</string>
+    <string name="via_wifi">онлайн через Wi-Fi пристрою</string>
+    <string name="no_net">немає інтернету</string>
+    <string name="net_connecting">з\'єднання</string>
+    <string name="net_error">помилка сервера</string>
+    <string name="carried">обмінів через телефон: %1$d</string>
+    <string name="unread">непрочитаних: %1$d</string>
+    <string name="carried_note">Телефон передає лише запечатані кадри однакового розміру: він не бачить ні повідомлень, ні контактів, ні ключів.</string>
+    <string name="lora">LoRa</string>
+    <string name="nodes">вузлів: %1$d</string>
+    <string name="gps">GPS</string>
+    <string name="fix_sats">фікс · %1$d суп.</string>
+    <string name="no_fix">без фіксу</string>
+    <string name="off">вимкнено</string>
+    <string name="notif_channel">Зв\'язок із пристроєм SICH</string>
+    <string name="notif_connecting">Підключаюсь до пристрою…</string>
+    <string name="notif_ready">%1$s · ОРЛИК через телефон</string>
+    <string name="notif_lost">%1$s · зв\'язок втрачено, пробую знову</string>
+    <string name="licence">Відкритий код, GPL-3.0 · sichmesh.org</string>
+</resources>
