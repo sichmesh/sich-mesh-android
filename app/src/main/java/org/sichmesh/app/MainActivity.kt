@@ -21,6 +21,7 @@ import android.os.Looper
 import android.os.ParcelUuid
 import android.view.Gravity
 import android.view.View
+import android.view.WindowInsets
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ScrollView
@@ -44,7 +45,16 @@ class MainActivity : Activity() {
         super.onCreate(state)
         window.statusBarColor = VOID
         root = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(16), dp(16), dp(24)) }
-        setContentView(ScrollView(this).apply { setBackgroundColor(VOID); addView(root) })
+        val page = root
+        val scroll = ScrollView(this).apply { setBackgroundColor(VOID); addView(page) }
+        // Android 15 draws apps under the status bar and the navigation bar (edge to edge): keep the
+        // content clear of them, or the title sits under the clock
+        scroll.setOnApplyWindowInsetsListener { _, insets ->
+            val (top, bottom) = barSizes(insets)
+            page.setPadding(dp(16), dp(16) + top, dp(16), dp(24) + bottom)
+            insets
+        }
+        setContentView(scroll)
         // a remembered device: straight back to it
         val saved = Prefs.device(this)
         if (saved != null && LinkHub.link == null && hasPermissions()) LinkService.start(this, saved.first)
@@ -189,6 +199,14 @@ class MainActivity : Activity() {
     }
 
     // ---------------------------------------------------------------- small view helpers
+    // the status bar (with the camera cut-out) on top, the navigation bar at the bottom, in pixels
+    private fun barSizes(insets: WindowInsets): Pair<Int, Int> =
+        if (Build.VERSION.SDK_INT >= 30) {
+            val b = insets.getInsets(WindowInsets.Type.systemBars() or WindowInsets.Type.displayCutout())
+            b.top to b.bottom
+        } else legacyBarSizes(insets)
+    @Suppress("DEPRECATION")
+    private fun legacyBarSizes(insets: WindowInsets): Pair<Int, Int> = insets.systemWindowInsetTop to insets.systemWindowInsetBottom
     private fun dp(v: Int) = (v * resources.displayMetrics.density).toInt()
     private fun dur(s: Long) = (if (s >= 86400) "${s / 86400}d " else "") + "%02d:%02d".format(s / 3600 % 24, s / 60 % 60)
     private fun gap(h: Int) { root.addView(View(this), LinearLayout.LayoutParams(1, dp(h))) }
