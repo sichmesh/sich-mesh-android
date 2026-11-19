@@ -15,8 +15,25 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - name: Tests (the chunk code against the device's own chunks)
         run: bash ./gradlew --no-daemon testDebugUnitTest
-      - name: APK (signed with the debug key - for testing only; the release key comes later)
+      - name: The SICH release key (from the repository secrets - never in git)
+        env:
+          SICH_KEYSTORE_B64: ${{ secrets.SICH_KEYSTORE_B64 }}
+        run: |
+          if [ -n "$SICH_KEYSTORE_B64" ]; then
+            printf '%s' "$SICH_KEYSTORE_B64" | tr -d '\r\n ' | base64 -d > "$RUNNER_TEMP/sich.jks"
+            echo "SICH_KEYSTORE=$RUNNER_TEMP/sich.jks" >> "$GITHUB_ENV"
+            echo "signing with the SICH release key"
+          else
+            echo "no release key here (a fork or a pull request): the APK is signed with the debug key - test builds only"
+          fi
+      - name: APK
+        env:
+          SICH_KEYSTORE_PASSWORD: ${{ secrets.SICH_KEYSTORE_PASSWORD }}
+          SICH_KEY_ALIAS: ${{ secrets.SICH_KEY_ALIAS }}
         run: bash ./gradlew --no-daemon assembleRelease
+      - name: Remove the key file
+        if: always()
+        run: rm -f "$RUNNER_TEMP/sich.jks"
       - uses: actions/upload-artifact@v4
         with:
           name: sich-mesh-apk
